@@ -1,0 +1,4 @@
+assemblyai==0.36.0
+Django==5.1.5
+moviepy==2.1.2
+SpeechRecognition==3.14.1
