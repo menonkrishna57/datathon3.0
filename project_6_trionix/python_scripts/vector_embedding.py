@@ -13,20 +13,18 @@ def load_transcript(file_path):
 # Step 2: Preprocess the Text
 def preprocess_text(text):
     """Cleans the input text."""
-    text = text.lower()  # Convert to lowercase
-    text = re.sub(r'\s+', ' ', text)  # Remove extra whitespaces
+    text = text.lower()  
+    text = re.sub(r'\s+', ' ', text) 
     return text
 
 # Step 3: Split and Process Sentences
 def process_sentences(text):
-    """Splits the text into sentences and preprocesses each one."""
-    sentences = re.split(r'(?<=[.!?])\s+', text)  # Split using punctuation as delimiters
+    sentences = re.split(r'(?<=[.!?])\s+', text) 
     sentences = [preprocess_text(sentence) for sentence in sentences if sentence.strip()]
     return sentences
 
 # Step 4: Generate Embeddings
 def generate_embeddings(sentences, model_name='all-MiniLM-L6-v2'):
-    """Generates embeddings for a list of sentences using a pre-trained model."""
     model = SentenceTransformer(model_name)
     embeddings = model.encode(sentences)
     return embeddings, model
@@ -40,7 +38,6 @@ def save_embeddings_and_sentences(embeddings, sentences, embeddings_file, senten
 
 # Step 6: Search the Transcript
 def search_transcript(query, sentences, embeddings, model, top_n=5):
-    """Searches for the most relevant sentences in the transcript."""
     query_embedding = model.encode([query])
     similarities = cosine_similarity(query_embedding, embeddings)[0]
     top_indices = similarities.argsort()[-top_n:][::-1]  # Get top N results
