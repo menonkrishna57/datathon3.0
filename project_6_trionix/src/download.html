@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download button</title>
+</head>
+<body>
+    <h1>Download button</h1>
+    <form class="linkForm" method="GET" action="/filelink/">
+    <input name="linkInput" type="text" id="fileLink" placeholder="Enter file link here">
+    <button onclick="/filelink/">Download </button> <hr>
+</form>
+
+    {%if data%}
+    {{data}}
+    {%endif%}
+
+    <form action="/login">
+        <button id="stat-btn" class="btn" >Login</button>
+    </form>
+</body>
+</html>
