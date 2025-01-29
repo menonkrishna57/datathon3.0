@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Box</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #commentBox {
+            position: absolute;
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        #commentsList {
+            margin-top: 20px;
+        }
+        .comment {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<button id="toggleButton">Comments</button>
+
+<div id="commentBox">
+    <textarea id="commentInput" placeholder="Type your comment here..."></textarea><br>
+    <label>
+        <input type="radio" name="visibility" value="public" checked> Public
+    </label>
+    <label>
+        <input type="radio" name="visibility" value="private"> Private
+    </label><br>
+    <button id="submitComment">Submit Comment</button>
+</div>
+
+<div id="commentsList">
+    <h3>Comments:</h3>
+    {% for comment in comments %}
+        <div class="comment" style="display: {{ 'none' if comment.visibility == 'private' else 'block' }}">
+            {{ comment.text }} ({{ comment.visibility }})
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+    const commentBox = document.getElementById('commentBox');
+    const toggleButton = document.getElementById('toggleButton');
+    const submitComment = document.getElementById('submitComment');
+    const commentInput = document.getElementById('commentInput');
+
+    toggleButton.onclick = function() {
+        commentBox.style.display = commentBox.style.display === 'block' ? 'none' : 'block';
+    };
+
+    commentBox.onmousedown = function(event) {
+        let shiftX = event.clientX - commentBox.getBoundingClientRect().left;
+        let shiftY = event.clientY - commentBox.getBoundingClientRect().top;
+
+        function moveAt(pageX, pageY) {
+            commentBox.style.left = pageX - shiftX + 'px';
+            commentBox.style.top = pageY - shiftY + 'px';
+        }
+
+        function onMouseMove(event) {
+            moveAt(event.pageX, event.pageY);
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+
+        commentBox.onmouseup = function() {
+            document.removeEventListener('mousemove', onMouseMove);
+            commentBox.onmouseup = null;
+        };
+    };
+
+    submitComment.onclick = function() {
+        const visibility = document.querySelector('input[name="visibility"]:checked').value;
+        const comment = commentInput.value;
+
+        if (comment) {
+            fetch('/add_comment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `comment=${encodeURIComponent(comment)}&visibility=${visibility}`
+            }).then(() => {
+                commentInput.value =
