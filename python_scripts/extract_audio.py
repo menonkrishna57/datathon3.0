@@ -1,14 +1,10 @@
-from moviepy import VideoFileClip
-def extract_video(video_path,output):
-    video=VideoFileClip(video_path)
-    audio=video.audio
-    audio.write_audiofile(output)
 
+import assemblyai as aai
 
+aai.settings.api_key = "ce8209cdfb214d80b63881d941a2b015"
+transcriber = aai.Transcriber()
 
-if __name__=="__main__":
-    video_path="aiml.mp4"
-    output="audio.mp3"
+transcript = transcriber.transcribe("../data/aiml.mp4")
 
-
-    extract_video(video_path,output)
+with open("transcript.txt", "w") as file:
+    file.write(transcript.text)
