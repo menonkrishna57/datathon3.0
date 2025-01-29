@@ -1,0 +1,44 @@
+sure, here are the topics covered in the text: 1.
+handling code errors 2.
+importance of a computer science degree 3.
+basics of software engineering 4.
+introduction to computers and turing machines 5.
+central processing unit (cpu) and transistors 6.
+bits and bytes 7.
+character encoding (ascii, utf-8) 8.
+binary and hexadecimal systems 9.
+machine code and programming languages 10.
+random access memory (ram) 11.
+input and output devices 12.
+operating system kernels and device drivers 13.
+shell and command line interface 14.
+secure shell (ssh) protocol 15.
+programming languages and abstraction 16.
+interpreted vs.
+compiled languages 17.
+data types and variables 18.
+memory management and pointers 19.
+garbage collection 20.
+integer and floating-point data types 21.
+character and string data types 22.
+endianness (big endian and little endian) 23.
+data structures (arrays, linked lists, stacks, queues, hashes, trees, graphs) 24.
+algorithms and functions 25.
+boolean data type and expressions 26.
+statements (if statements, loops) 27.
+recursion and call stack 28.
+big o notation (time and space complexity) 29.
+algorithm types (brute force, divide and conquer, dynamic programming, greedy algorithms, backtracking) 30.
+programming paradigms (declarative, imperative, object-oriented programming) 31.
+classes, objects, and inheritance 32.
+memory management (heap vs.
+call stack) 33.
+multithreading and parallelism 34.
+concurrency models (event loop, coroutines) 35.
+cloud computing and virtual machines 36.
+internet protocol and ip addresses 37.
+domain name service (dns) 38.
+tcp handshake and ssl encryption 39.
+hypertext transfer protocol (http) 40.
+application programming interfaces (apis) and rest architecture 41.
+printers and troubleshooting these pointers summarize the key concepts discussed in the provided text.

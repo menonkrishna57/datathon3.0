@@ -1,0 +1,178 @@
+
+.roboto-uniquifier {
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+  }
+*{
+    margin:0;
+    padding: 0;
+    font-family: roboto;
+    border: border-box;
+    font-family: roboto;
+
+}
+body{
+    background: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(a.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+.navbar{
+    height: 80px;
+    display: flex;
+    align-items: center;
+
+    background-color: white;
+    color: black;
+    justify-content: space-between;
+    position: sticky;
+    /* border: 1px solid  grey; */
+}
+/* .navbar-logo{
+    width: 113px;
+    height: 50px;
+} */
+.navbar-logo{
+    width: 100px;
+    height:70px;
+    background-image:url(logo.jpeg);
+    background-size: cover;
+    background-position: relative;
+    margin-left: 10px;
+}
+ul {
+    display: flex;
+    list-style: none;
+    margin-right: 10px;
+    text-decoration: none;
+    justify-content: space-evenly;
+}
+ul li{
+    display: flex;
+    justify-content: center ;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #773ab4;
+}
+ul li a{
+    color: black;
+    text-decoration: none;
+}
+.other-func{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px;
+}
+.other-func span a{
+    color: #773ab4;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+}
+.youtube-down{
+    font-size: large;
+    margin: 80px;
+    color: black;
+    
+}
+.schematic-query{
+    font-size: large;
+    margin: 80px;
+}
+.text-link{
+    color: white;
+}
+.other-func .youtube-down a{
+    color: black;
+}
+.other-func .youtube-down a:hover{
+    color:  #773ab4;
+}
+.other-func .schematic-query a{
+    color: black;
+}
+.other-func .schematic-query a:hover{
+    color:  #773ab4;
+}
+/* main  */
+.entry{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin: 10px;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    
+}
+.text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    color: black;
+    font-size: 20px;
+    padding: 20px;
+    width: 630px;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    color: black;
+    background-color: white;
+    font-size: 20px;
+    padding: 20px;
+
+}
+.video{
+    display: block;
+    width : 50%;
+    margin-right: 2px;
+    height: 500px;
+    margin-left: 10px;
+
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+}
+.para{
+    display: flex;
+    border: 2px solid black;
+    justify-content: end;
+    align-items: center;
+    background-color: white;
+    font-size: 20px;
+    padding: 20px;
+    width: 50%;
+    height: 500px;
+    margin-left: 2px;
+}
+.together{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px;
+    color: black;
+    font-size: 20px;
+    margin-bottom: 5px;
+    padding: 20px;
+}
+.button-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+    color: black;
+    font-size: 20px;
+    padding: 20px;
+    width: 50px;
+}

@@ -54,7 +54,7 @@ ROOT_URLCONF = 'project_6_trionix.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["D:\OneDrive - Shri Vile Parle Kelavani Mandal\Trionix\website\login_page"],
+        'DIRS': [r"login_page",r"project_6_trionix\src"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,7 +117,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT=BASE_DIR/'static'
-STATICFILES_DIRS=[BASE_DIR,'project_6_trionix/static']
+STATICFILES_DIRS=[BASE_DIR,r'project_6_trionix\project_6_trionix\static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>query</title>
+    <link rel="stylesheet" href="{%static 'css/query.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <div class="navbar-logo"></div>
+                <div class="other-func">
+                    <span class="youtube-down"><a href="#">Youtube Downloader</a></span>
+                    <span class="schematic-query"><a href="#">Schematic Query</a></span>
+        
+                </div>
+                <div class="navbar-menu">
+                    <ul>            
+                        <li><a href="\login">Sign In</a></li>
+                        <li><a href="\signup">Sign Up</a></li>
+                    </ul>
+            </div>
+        </nav>
+        </header><main>
+            <div class="together">
+    <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/-uleG_Vecis?si=QmatRXBIpSSsrC1F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="para">
+        <p>    
+    {%if data%}
+    {{data}}
+    {%endif%}
+</p>
+    </div>
+</div>
+    <div class="entry">
+        <form class="query" method="GET" action="transcribe/"></form>
+        <input type="text" class="text" placeholder="Please enter the query">
+        <div class="button-div">
+    <button class="button">submit</button>
+</div>
+</div>
+</main>
+</body>
+</html>

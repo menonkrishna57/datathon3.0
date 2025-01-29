@@ -47,11 +47,26 @@ def search_transcript(query, sentences, embeddings, model, top_n=5):
     results = [(sentences[idx], similarities[idx]) for idx in top_indices]
     return results
 
+
+def myquery(query,loaded_sentences,loaded_embeddings,model):
+    query = input("\nEnter your search query (or type 'exit' to quit): ")
+    if query.lower() == 'exit':
+        print("Exiting...")
+        return True
+    
+    print("\nSearching for relevant sentences...")
+    results = search_transcript(query, loaded_sentences, loaded_embeddings, model)
+    print(f"\nSearch results for query: '{query}'\n")
+    the_results = []
+    for i, (sentence, score) in enumerate(results, start=1):
+        the_results.append(f"{i}. {sentence} (Score: {score:.4f})")
+    return the_results
+
 # Step 7: Main Function
-def main():
-    transcript_file = 'python_scripts/transcript.txt'
-    embeddings_file = 'transcript_embeddings.npy'
-    sentences_file = 'processed_transcript.txt'
+def main(transcript_file):
+    transcript_file = r'project_6_trionix\python_scripts\data_file\processed_transcript.txt'
+    embeddings_file = r'project_6_trionix\python_scripts\data_file\transcript_embeddings.npy'
+    sentences_file = r'project_6_trionix\python_scripts\data_file\processed_transcript.txt'
     
     print("Loading and processing the transcript...")
     text = load_transcript(transcript_file)
@@ -67,18 +82,10 @@ def main():
     loaded_embeddings = np.load(embeddings_file)
     with open(sentences_file, 'r', encoding='utf-8') as file:
         loaded_sentences = file.read().split('\n')
-    
-    while True:
-        query = input("\nEnter your search query (or type 'exit' to quit): ")
-        if query.lower() == 'exit':
-            print("Exiting...")
-            break
-        
-        print("\nSearching for relevant sentences...")
-        results = search_transcript(query, loaded_sentences, loaded_embeddings, model)
-        print(f"\nSearch results for query: '{query}'\n")
-        for i, (sentence, score) in enumerate(results, start=1):
-            print(f"{i}. {sentence} (Score: {score:.4f})")
+    return loaded_sentences,loaded_embeddings,model
+    # while True:
+    #     if(myquery(query,loaded_sentences,loaded_embeddings,model)):
+    #         break
 
 if __name__ == "__main__":
     main()

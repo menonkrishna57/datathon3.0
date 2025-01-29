@@ -13,6 +13,9 @@
     border: border-box;
     font-family: roboto;
 }
+body{
+    background-image: ;
+}
 .navbar{
     height: 80px;
     display: flex;
@@ -40,6 +43,45 @@ ul {
     display: flex;
     list-style: none;
     margin-right: 10px;
+    text-decoration: none;
+    justify-content: space-evenly;
+}
+ul li{
+    display: flex;
+    justify-content: center ;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #773ab4;
+}
+ul li a{
+    color: black;
+    text-decoration: none;
+}
+.other-func{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px;
+}
+.other-func span a{
+    color: grey    ;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+}
+.other-func span a:hover{
+    color: #773ab4;
+}
+.youtube-down{
+    font-size: large;
+    margin: 80px;
+    
+}
+.schematic-query{
+    font-size: large;
+    margin: 80px;
 }
     /* main */
 .outer-box{
