@@ -32,7 +32,6 @@ def download_youtube_video(link):
     aai.settings.api_key = "ce8209cdfb214d80b63881d941a2b015"
     transcriber = aai.Transcriber()
 
-    # Transcribe the downloaded video file
     print(video_path)
     transcript = transcriber.transcribe(video_path)
 
