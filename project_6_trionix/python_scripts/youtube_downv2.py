@@ -18,7 +18,7 @@ def transcribe_video(file_path, api_key):
     with open("transcript.txt", "w") as file:
         file.write(transcript.text)
     print("Transcription saved to transcript.txt")
-    return transcript.text  # Return the transcription text
+    return transcript.text 
 
 def download_youtube_video(link):
     yt = YouTube(link, 'WEB')
@@ -39,7 +39,7 @@ def download_youtube_video(link):
     with open("transcript.txt", "w") as file:
         file.write(transcript.text)
 
-    return video_path  # Return the path to the downloaded video file
+    return video_path 
 
 def get_transcription_from_file():
     try:
@@ -49,14 +49,12 @@ def get_transcription_from_file():
     except FileNotFoundError:
         print("Transcription file not found.")
         return None
-
-# Main function to handle the flow
 def main():
     link = "https://www.youtube.com/watch?v=9bZkp7q19f0"
     video_file_path = download_youtube_video(link)
     print(f"Downloaded video file path: {video_file_path}")
 
-    # Get the transcription from the saved file
+ 
     transcription = get_transcription_from_file()
     if transcription:
         print("Transcription:")
