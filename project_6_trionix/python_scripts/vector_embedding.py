@@ -61,10 +61,10 @@ def myquery(query,loaded_sentences,loaded_embeddings,model):
 
 # Step 7: Main Function
 def main(transcript_file):
-    transcript_file = r'project_6_trionix\python_scripts\data_file\processed_transcript.txt'
-    embeddings_file = r'project_6_trionix\python_scripts\data_file\transcript_embeddings.npy'
-    sentences_file = r'project_6_trionix\python_scripts\data_file\processed_transcript.txt'
     
+    embeddings_file = os.path.join(os.getcwd(),'project_6_trionix', 'data', 'transcript_embeddings.npy')
+    sentences_file = os.path.join(os.getcwd(), 'project_6_trionix', 'data', 'processed_transcript.txt')
+   
     print("Loading and processing the transcript...")
     text = load_transcript(transcript_file)
     sentences = process_sentences(text)
