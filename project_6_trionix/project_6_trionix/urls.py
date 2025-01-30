@@ -17,13 +17,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('', views.home),
     path('login/',views.login),
     path('signup/',views.signup),
-    path('download/',views.download),
     path('upload/',views.upload),
     # path('filelink/',views.linkin),
     path('transcribe/',views.transcribe),
+    path('download/',views.ytdownload),
+    path('audio/',views.audio),
+    path('query/',views.query),
+    path('loading/',views.loading),
+    # static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
     # path('admin/', admin.site.urls),
 ]
