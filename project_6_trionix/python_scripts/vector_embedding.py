@@ -2,6 +2,7 @@ import numpy as np
 import re
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
+import os
 
 # Step 1: Load the Transcript
 def load_transcript(file_path):
@@ -46,24 +47,24 @@ def search_transcript(query, sentences, embeddings, model, top_n=5):
 
 
 def myquery(query,loaded_sentences,loaded_embeddings,model):
-    query = input("\nEnter your search query (or type 'exit' to quit): ")
-    if query.lower() == 'exit':
-        print("Exiting...")
-        return True
+    # query = input("\nEnter your search query (or type 'exit' to quit): ")
+    # if query.lower() == 'exit':
+    #     print("Exiting...")
+    #     return True
     
     print("\nSearching for relevant sentences...")
     results = search_transcript(query, loaded_sentences, loaded_embeddings, model)
     print(f"\nSearch results for query: '{query}'\n")
     the_results = []
     for i, (sentence, score) in enumerate(results, start=1):
-        the_results.append(f"{i}. {sentence} (Score: {score:.4f})")
+        the_results.append(f"{i}. {sentence}")
     return the_results
 
 # Step 7: Main Function
 def main(transcript_file):
-    
-    embeddings_file = os.path.join(os.getcwd(),'project_6_trionix', 'data', 'transcript_embeddings.npy')
-    sentences_file = os.path.join(os.getcwd(), 'project_6_trionix', 'data', 'processed_transcript.txt')
+    #TODO: Check if new file is made automatically
+    embeddings_file = os.path.join(os.getcwd(),'data','processed','transcript_embeddings.npy')
+    sentences_file = os.path.join(os.getcwd(), 'data','processed','processed_transcript.txt')
    
     print("Loading and processing the transcript...")
     text = load_transcript(transcript_file)
@@ -79,6 +80,9 @@ def main(transcript_file):
     loaded_embeddings = np.load(embeddings_file)
     with open(sentences_file, 'r', encoding='utf-8') as file:
         loaded_sentences = file.read().split('\n')
+    print("Loaded",loaded_sentences)
+    print("Loaded",loaded_embeddings)
+    print("Loaded",model)
     return loaded_sentences,loaded_embeddings,model
     # while True:
     #     if(myquery(query,loaded_sentences,loaded_embeddings,model)):
