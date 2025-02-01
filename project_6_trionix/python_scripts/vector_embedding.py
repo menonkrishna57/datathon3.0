@@ -5,12 +5,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 import os
 
 def load_transcript(file_path):
-    """Loads the transcript from a .txt file."""
     with open(file_path, 'r', encoding='utf-8') as file:
         text = file.read()
     return text
 def preprocess_text(text):
-    """Cleans the input text."""
     text = text.lower()  
     text = re.sub(r'\s+', ' ', text) 
     return text
@@ -25,7 +23,6 @@ def generate_embeddings(sentences, model_name='all-MiniLM-L6-v2'):
     return embeddings, model
 
 def save_embeddings_and_sentences(embeddings, sentences, embeddings_file, sentences_file):
-    """Saves embeddings and processed sentences to files."""
     np.save(embeddings_file, embeddings)
     with open(sentences_file, 'w', encoding='utf-8') as file:
         file.write('\n'.join(sentences))
@@ -33,7 +30,7 @@ def save_embeddings_and_sentences(embeddings, sentences, embeddings_file, senten
 def search_transcript(query, sentences, embeddings, model, top_n=5):
     query_embedding = model.encode([query])
     similarities = cosine_similarity(query_embedding, embeddings)[0]
-    top_indices = similarities.argsort()[-top_n:][::-1]  # Get top N results
+    top_indices = similarities.argsort()[-top_n:][::-1] 
     results = [(sentences[idx], similarities[idx]) for idx in top_indices]
     return results
 
@@ -52,7 +49,6 @@ def myquery(query,loaded_sentences,loaded_embeddings,model):
         the_results.append(f"{i}. {sentence}")
     return the_results
 def main(transcript_file):
-    #TODO: Check if new file is made automatically
     embeddings_file = os.path.join(os.getcwd(),'data','processed','transcript_embeddings.npy')
     sentences_file = os.path.join(os.getcwd(), 'data','processed','processed_transcript.txt')
    
