@@ -1,11 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
+<!-- python project_6_trionix/manage.py runserver -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>query</title>
-    <link rel="stylesheet" href="{%static 'css/query.css' %}">
+    <link rel="stylesheet" href="{%static 'css/query_real.css' %}">
 </head>
 <body>
     <header>
@@ -13,9 +14,9 @@
             <div class="navbar">
                 <div class="navbar-logo"></div>
                 <div class="other-func">
-                    <span class="youtube-down"><a href="#">Youtube Downloader</a></span>
-                    <span class="schematic-query"><a href="#">Schematic Query</a></span>
-        
+                    <span class="youtube-down"><a href="\ytdownload">Youtube Downloader</a></span>
+                    <span class="schematic-query"><a href="\">Schematic Query</a></span>
+                    <span class="youtube-down"><a href="\audio">Audio  Downloader</a></span>
                 </div>
                 <div class="navbar-menu">
                     <ul>            
@@ -26,7 +27,15 @@
         </nav>
         </header><main>
             <div class="together">
-    <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/-uleG_Vecis?si=QmatRXBIpSSsrC1F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <!-- <iframe class="video" width="560" height="315" 
+                src="https://www.youtube.com/embed/{% if data %}{{ data }}{% else %}-uleG_Vecis{% endif %}" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe> -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/kJQP7kiw5Fk?si=ZkfMDtGrTxOiUSWI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     <div class="para">
         <p>    
     {%if data%}
@@ -35,12 +44,13 @@
 </p>
     </div>
 </div>
+<form class="query" method="GET" action="\query">
     <div class="entry">
-        <form class="query" method="GET" action="transcribe/"></form>
-        <input type="text" class="text" placeholder="Please enter the query">
-        <div class="button-div">
-    <button class="button">submit</button>
-</div>
+        
+        <input name="myquery" type="text" class="text" placeholder="Please enter the query">
+
+    <button class="button">submit</button></form>
+
 </div>
 </main>
 </body>
