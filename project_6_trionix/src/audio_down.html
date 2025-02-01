@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Audio Downloader</title>
+    <link rel="stylesheet" href="{%static 'css/downloader.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Vinyl&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header>
+<nav>
+    <div class="navbar">
+        <div class="navbar-logo"></div>
+        <div class="other-func">
+            <span class="youtube-down"><a href="\ytdownload">Youtube downloader</a></span>
+            <span class="schematic-query"><a href="\">Schematic Query</a></span>
+            <span class="youtube-down"><a href="#">Audio downloader</a></span>
+
+        </div>
+        <div class="navbar-menu">
+            <ul>            
+            <!-- TODO: Add the correct hrefs to the links below -->                
+                <li><a href="\login">Sign In</a></li>
+                <li><a href="\signup">Sign Up</a></li>
+            </ul>
+    </div>
+</nav>
+</header>
+<main>
+    <div class="outer">
+    <div class="main-box">
+        <div class="youtube-text">
+            Audio Downloader
+        </div>
+        <div class="text-link">
+
+            please enter the link of the Audio
+        </div>
+        <div class="youtube-link">
+
+            <input type="text"  class="text" placeholder="Please place you video link">
+                <div class="button-box"><button class="button-download">Download</button></div>
+    </div>
+  
+</main>
+</body>
+</html>
