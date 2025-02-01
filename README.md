@@ -44,6 +44,3 @@ messagebox
 
 
    
-This project is licensed under the TRIONIX License.
-
-Add README.md file

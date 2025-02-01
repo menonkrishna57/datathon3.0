@@ -27,10 +27,12 @@ urlpatterns = [
     path('upload/',views.upload),
     # path('filelink/',views.linkin),
     path('transcribe/',views.transcribe),
-    path('download/',views.ytdownload),
+    path('ytdownload/',views.ytdownload),
+    path('download/',views.download),
     path('audio/',views.audio),
     path('query/',views.query),
     path('loading/',views.loading),
+    path('test',views.download_file)
     # static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
     # path('admin/', admin.site.urls),
 ]

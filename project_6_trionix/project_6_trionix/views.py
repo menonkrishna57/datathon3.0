@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, FileResponse
 import requests
 from python_scripts import youtube_downv3
 from python_scripts import all_con as ac
@@ -15,34 +15,55 @@ def signup(request):
     return render(request, 'login/register_acc.html')
 
 def download(request):
-    link=None
+
 
     try:
         link=request.GET['linkInput']
-        youtube_downv3.download_youtube_video(link)
+        file=youtube_downv3.download_youtube_video(link)
     except:
         pass
-    return render(request, 'download.html',{'data': link})
+    print(file)
+
+
+    response = FileResponse(open(file, 'rb'), as_attachment=True)
+    print(response)
+    response['Content-Disposition'] = f'attachment; filename="{file}"'
+    return response
+
+import mimetypes
+
+...
+
+def download_file(request):
+    # fill these variables with real values
+    fl_path = r"c:\Users\menon\Downloads"
+    filename = "100+ Computer Science Concepts Explained.mp4"
+
+    fl = open(fl_path, 'r')
+    mime_type, _ = mimetypes.guess_type(fl_path)
+    response = HttpResponse(fl, content_type=mime_type)
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    return response
 
 def output(request):
     data=requests.get("https://reqres.in/api/users")
     print(data.text)
     return render(request, 'download.html', {'data': data.text}) 
 
-def transcribev1(request):
-    myobj=ve
-    res=None
-    try:
-        link=request.GET['linkInput']
-        print(link)
-        trans_path=youtube_downv3.download_youtube_video(link)
-        loaded_sentences,loaded_embeddings,model=myobj.main(trans_path)
-        res=myobj.myquery(trans_path,loaded_sentences,loaded_embeddings,model)
+# def transcribev1(request):
+#     myobj=ve
+#     res=None
+#     try:
+#         link=request.GET['linkInput']
+#         print(link)
+#         trans_path=youtube_downv3.download_youtube_video(link)
+#         loaded_sentences,loaded_embeddings,model=myobj.main(trans_path)
+#         res=myobj.myquery(trans_path,loaded_sentences,loaded_embeddings,model)
 
-    except AttributeError:
-        print("oh damn")
+#     except AttributeError:
+#         print("oh damn")
 
-    return render(request, 'query.html', {'data': res})
+#     return render(request, 'query.html', {'data': res})
 
 def transcribe(request):
     render(request, 'loader.html')
@@ -52,6 +73,7 @@ def transcribe(request):
         loaded_sentences,loaded_embeddings,model=ac.main(user_query)
     except AttributeError:
         print("oh damn")
+    return render(request, 'query.html')
 
 def query(request):
     user_query=request.GET['myquery']
@@ -60,7 +82,7 @@ def query(request):
 
 def upload(request):
     global link
-    link=request.GET['linkIorm']
+    link=request.GET['linkForm']
     global trans_path
     trans_path=youtube_downv3.download_youtube_video(link)
     transcribe(request)
