@@ -1,0 +1,28 @@
+body{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+div{
+    height: 300px;
+    width: 300px;
+    border: 10px solid black;
+    border-left:15px aqua dotted;
+    border-radius: 50%;
+    animation: loadingspin 2s infinite 0s ease-in-out;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    margin-left: 40%;
+
+}
+@keyframes loadingspin{
+    
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    
+}

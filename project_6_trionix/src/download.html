@@ -7,14 +7,12 @@
 </head>
 <body>
     <h1>Download button</h1>
-    <form class="linkForm" method="GET" action="transcribe/">
+    <!-- <form class="linkForm" method="GET" action="transcribe/"> -->
     <input name="linkInput" type="text" id="fileLink" placeholder="Enter file link here">
-    <button onclick="/filelink/">Download </button> <hr>
-</form>
+    <button onclick="window.location.href='{% if data %}{{ data }}{% endif %}'">Download</button> <hr>
+<!-- </form> -->
 
-    {%if data%}
-    {{data}}
-    {%endif%}
+
 
     <form action="/login">
         <button id="stat-btn" class="btn" >Login</button>
